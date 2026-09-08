@@ -42,6 +42,11 @@ public class Cart implements Serializable {
         }
     }
 
+    // xoa han dong, khong quan tam quantity - dung khi nguoi dung tu go so luong = 0 roi bam Update
+    public void deleteItem(String productCode) {
+        items.removeIf(item -> item.getProduct().getCode().equals(productCode));
+    }
+
     public List<CartItem> getItems() {
         return items;
     }

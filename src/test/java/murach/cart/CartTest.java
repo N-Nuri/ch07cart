@@ -28,6 +28,19 @@ public class CartTest extends TestCase {
         // quantity dang la 1 -> remove phai xoa han dong, khong con item nao
     }
 
+    public void testDeleteItemAlwaysRemovesRegardlessOfQuantity() {
+        Cart cart = new Cart();
+        Product cd = new Product("8601", "86 (the band)", 14.95);
+        cart.addItem(cd);
+        cart.addItem(cd);
+        cart.addItem(cd); // quantity = 3
+
+        cart.deleteItem("8601");
+
+        assertEquals(0, cart.getItems().size());
+        // dung khi go so luong = 0 roi bam Update - phai mat han, khong duoc chi tru 1
+    }
+
     public void testRemoveItemDoesNotAffectOtherProducts() {
         Cart cart = new Cart();
         Product a = new Product("8601", "86 (the band)", 14.95);

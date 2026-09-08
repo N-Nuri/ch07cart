@@ -49,7 +49,7 @@ public class CartServlet extends HttpServlet {
                     if (quantity > 0) {
                         cart.updateQuantity(code, quantity);
                     } else {
-                        cart.removeItem(code);
+                        cart.deleteItem(code);
                     }
                 } catch (NumberFormatException e) {
                     // gia tri nhap khong hop le -> bo qua, giu nguyen so luong cu
