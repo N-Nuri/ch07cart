@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Murach's Java Servlets and JSP</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+</head>
+<body>
+    <h1>CD list</h1>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>86 (the band) - True Life Songs and Pictures</td>
+            <td>$14.95</td>
+            <!-- URL rewriting: truyen productCode thang qua query string, khong can form -->
+            <td><a class="btn" href="cart?productCode=8601">Add To Cart</a></td>
+        </tr>
+        <tr>
+            <td>Paddlefoot - The first CD</td>
+            <td>$12.95</td>
+            <td><a class="btn" href="cart?productCode=pf01">Add To Cart</a></td>
+        </tr>
+        <tr>
+            <td>Paddlefoot - The second CD</td>
+            <td>$14.95</td>
+            <td><a class="btn" href="cart?productCode=pf02">Add To Cart</a></td>
+        </tr>
+        <tr>
+            <td>Joe Rut - Genuine Wood Grained Finish</td>
+            <td>$14.95</td>
+            <td><a class="btn" href="cart?productCode=jr01">Add To Cart</a></td>
+        </tr>
+    </table>
+</body>
+</html>
