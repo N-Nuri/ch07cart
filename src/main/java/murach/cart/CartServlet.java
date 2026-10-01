@@ -28,13 +28,22 @@ public class CartServlet extends HttpServlet {
         showCart(request, response);
     }
 
-    // POST: bam Update / Remove Item / Continue Shopping tren trang cart
+    // POST: bam Update / Remove Item / Continue Shopping / Checkout tren trang cart
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         if (request.getParameter("continue") != null) {
             response.sendRedirect(request.getContextPath() + "/index.html");
+            return;
+        }
+
+        if (request.getParameter("checkout") != null) {
+            // chuyen sang VNPayServlet de tao URL thanh toan va redirect toi VNPay.
+            // Gio hang van giu trong session - chi ket thuc session sau khi VNPay
+            // xac nhan thanh toan thanh cong (xem VNPayReturnServlet).
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/vnpay");
+            dispatcher.forward(request, response);
             return;
         }
 

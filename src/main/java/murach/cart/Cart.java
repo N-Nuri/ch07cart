@@ -50,4 +50,13 @@ public class Cart implements Serializable {
     public List<CartItem> getItems() {
         return items;
     }
+
+    // tong tien ca gio hang - dung o trang checkout
+    public double getTotal() {
+        double total = 0;
+        for (CartItem item : items) {
+            total += item.getAmount();
+        }
+        return total;
+    }
 }

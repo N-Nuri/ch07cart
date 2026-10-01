@@ -41,6 +41,18 @@ public class CartTest extends TestCase {
         // dung khi go so luong = 0 roi bam Update - phai mat han, khong duoc chi tru 1
     }
 
+    public void testGetTotalSumsAllItemAmounts() {
+        Cart cart = new Cart();
+        Product a = new Product("8601", "86 (the band)", 14.95);
+        Product b = new Product("pf01", "Paddlefoot", 12.95);
+        cart.addItem(a);
+        cart.addItem(b);
+        cart.addItem(b); // pf01 quantity = 2
+
+        // 14.95 + (12.95 * 2) = 40.85
+        assertEquals(40.85, cart.getTotal(), 0.001);
+    }
+
     public void testRemoveItemDoesNotAffectOtherProducts() {
         Cart cart = new Cart();
         Product a = new Product("8601", "86 (the band)", 14.95);
